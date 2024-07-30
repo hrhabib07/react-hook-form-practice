@@ -11,6 +11,10 @@ const nativeFormInputSchema = z.object({
   gender: z.enum(["male", "female"], {
     required_error: "Please select a gender",
   }),
+  department: z.enum(["cse", "eee", "swe"]),
+  skillset: z
+    .array(z.enum(["javascript", "typescript", "react", "tailwind", "redux"]))
+    .min(3),
 });
 
 type TNativeFormInputs = z.infer<typeof nativeFormInputSchema>;
@@ -93,6 +97,101 @@ const NativeForm = () => {
           <ErrorMessage
             errors={errors}
             name="gender"
+            render={({ message }) => <p className="text-red-500">{message}</p>}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="department">Department</label>
+          <div className="flex gap-4">
+            <label htmlFor="cse">
+              <input
+                type="radio"
+                id="cse"
+                {...register("department")}
+                value="cse"
+              />{" "}
+              CSE
+            </label>
+            <label htmlFor="eee">
+              <input
+                type="radio"
+                {...register("department")}
+                id="eee"
+                value="eee"
+              />{" "}
+              EEE
+            </label>
+            <label htmlFor="swe">
+              <input
+                type="radio"
+                {...register("department")}
+                id="swe"
+                value="swe"
+              />{" "}
+              SWE
+            </label>
+          </div>
+          <ErrorMessage
+            errors={errors}
+            name="department"
+            render={({ message }) => <p className="text-red-500">{message}</p>}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="skillset">Skillset</label>
+          <div className="grid grid-cols-3 gap-4">
+            <label>
+              <input
+                type="checkbox"
+                value="javascript"
+                {...register("skillset")}
+                className="mr-2"
+              />
+              JavaScript
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="typescript"
+                {...register("skillset")}
+                className="mr-2"
+              />
+              TypeScript
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="react"
+                {...register("skillset")}
+                className="mr-2"
+              />
+              React
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="tailwind"
+                {...register("skillset")}
+                className="mr-2"
+              />
+              Tailwind
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="redux"
+                {...register("skillset")}
+                className="mr-2"
+              />
+              Redux
+            </label>
+          </div>
+
+          <ErrorMessage
+            errors={errors}
+            name="skillset"
             render={({ message }) => <p className="text-red-500">{message}</p>}
           />
         </div>
