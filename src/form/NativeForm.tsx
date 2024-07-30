@@ -3,19 +3,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 
-type TNativeFormInputs = {
-  name: string;
-  email: string;
-  age: number;
-  dob: Date;
-};
-
 const nativeFormInputSchema = z.object({
   name: z.string().min(3),
   email: z.string().email(),
   age: z.number({ required_error: "age must be number" }),
   dob: z.date({ required_error: "date of birth is required" }),
+  gender: z.enum(["male", "female"], {
+    required_error: "Please select a gender",
+  }),
 });
+
+type TNativeFormInputs = z.infer<typeof nativeFormInputSchema>;
 
 const NativeForm = () => {
   const {
@@ -26,7 +24,7 @@ const NativeForm = () => {
     resolver: zodResolver(nativeFormInputSchema),
   });
   const handleOnSubmit: SubmitHandler<TNativeFormInputs> = (data) => {
-    alert(JSON.stringify(data));
+    alert(JSON.stringify(data, null, 2));
     console.log("hello");
   };
 
@@ -84,6 +82,21 @@ const NativeForm = () => {
           />
           {errors && <p className="text-red-500">{errors.dob?.message}</p>}
         </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="gender">Gender</label>
+          <select className="p-2 border" id="gender" {...register("gender")}>
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <ErrorMessage
+            errors={errors}
+            name="gender"
+            render={({ message }) => <p className="text-red-500">{message}</p>}
+          />
+        </div>
+
         <button type="submit" className="bg-blue-600 text-white w-20 p-2 my-2">
           Submit
         </button>
