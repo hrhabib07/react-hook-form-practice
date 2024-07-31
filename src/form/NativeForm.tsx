@@ -24,13 +24,14 @@ const NativeForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TNativeFormInputs>({
     resolver: zodResolver(nativeFormInputSchema),
   });
   const handleOnSubmit: SubmitHandler<TNativeFormInputs> = (data) => {
     alert(JSON.stringify(data, null, 2));
-    console.log("hello");
+    reset();
   };
 
   return (
@@ -205,9 +206,21 @@ const NativeForm = () => {
           <input type="color" id="eyeColor" {...register("eyeColor")} />
         </div>
 
-        <button type="submit" className="bg-blue-600 text-white w-20 p-2 my-2">
-          Submit
-        </button>
+        <div className="flex gap-4">
+          <button
+            type="reset"
+            onClick={() => reset()}
+            className="bg-red-600 text-white w-20 p-2 my-2"
+          >
+            Reset
+          </button>
+          <button
+            type="submit"
+            className="bg-blue-600 text-white w-20 p-2 my-2"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
