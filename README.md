@@ -1,30 +1,15 @@
-# React + TypeScript + Vite
+# Simple React Hook Form Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a single-page application built with TypeScript, React, Tailwind CSS, and React Hook Form. It demonstrates a simple form handling implementation using React Hook Form, showcasing efficient and streamlined form validation and state management.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **TypeScript:** Strongly typed codebase for enhanced reliability and maintainability.
+- **React:** Component-based architecture for modular and reusable UI components.
+- **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
+- **React Hook Form:** Simplified form handling and validation with minimal re-renders.
 
-## Expanding the ESLint configuration
+## Live Site
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Check out the live version of the project [here](https://your-live-site-url.com).
+![Project snapshot](images/project-image.png)
