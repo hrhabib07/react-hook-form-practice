@@ -12,4 +12,7 @@ This project is a single-page application built with TypeScript, React, Tailwind
 ## Live Site
 
 Check out the live version of the project [here](https://your-live-site-url.com).
+
+## Project image
+
 ![Project snapshot](images/project-image.png)
