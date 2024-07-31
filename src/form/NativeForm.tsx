@@ -15,6 +15,7 @@ const nativeFormInputSchema = z.object({
   skillset: z
     .array(z.enum(["javascript", "typescript", "react", "tailwind", "redux"]))
     .min(3),
+  eyeColor: z.string(),
 });
 
 type TNativeFormInputs = z.infer<typeof nativeFormInputSchema>;
@@ -34,6 +35,9 @@ const NativeForm = () => {
 
   return (
     <div className="max-w-xl my-12 mx-auto ">
+      <h2 className="text-4xl my-4 text-blue-600 font-bold">
+        Welcome to simple register form!
+      </h2>
       <form className="flex flex-col" onSubmit={handleSubmit(handleOnSubmit)}>
         <div className="flex flex-col">
           <label htmlFor="name">Name</label>
@@ -194,6 +198,11 @@ const NativeForm = () => {
             name="skillset"
             render={({ message }) => <p className="text-red-500">{message}</p>}
           />
+        </div>
+
+        <div className="flex flex-col">
+          <label htmlFor="eyeColor">Eye color</label>
+          <input type="color" id="eyeColor" {...register("eyeColor")} />
         </div>
 
         <button type="submit" className="bg-blue-600 text-white w-20 p-2 my-2">
