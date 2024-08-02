@@ -9,6 +9,10 @@ This project is a single-page application built with TypeScript, React, Tailwind
 - **Tailwind CSS:** Utility-first CSS framework for rapid UI development.
 - **React Hook Form:** Simplified form handling and validation with minimal re-renders.
 
+## Date of Completion
+
+Completed on July 31st, 2024
+
 ## Live Site
 
 Check out the live version of the project [here](https://react-hook-form-neon.vercel.app/).
